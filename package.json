@@ -11,8 +11,15 @@
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
+    "bull": "^3.4.8",
+    "bull-arena": "^2.5.0",
     "cors": "^2.8.4",
     "express": "^4.16.4",
-    "mongoose": "^5.3.3"
+    "mongoose": "^5.3.3",
+    "redis": "^2.8.0",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.2"
   }
 }

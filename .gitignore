@@ -8,8 +8,6 @@
 # dependencies
 /node_modules
 
-config.json
-
 # IDEs and editors
 /.idea
 .project

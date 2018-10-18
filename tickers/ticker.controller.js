@@ -5,8 +5,8 @@ const tickerService = require('./ticker.service');
 // routes
 router.get('/', getAll);
 router.get('/:symbol', getBySymbol);
-// router.post('/create', create);
 router.post('/fetch', fetch);
+// router.post('/create', create);
 // router.get('/price/:symbol', getPriceBySymbol);
 
 module.exports = router;
