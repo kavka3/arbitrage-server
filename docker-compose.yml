@@ -1,20 +1,24 @@
 version: "2"
 services:
   redis:
-    image: redis
-    container_name: cache
-    expose:
-    - 6379
+    image: redis:3.0
+    volumes:
+      - ./data/redis:/data
+    command: redis-server --appendonly yes
   app:
     container_name: app
     restart: always
     build: .
     environment:
-      - REDIS_URL=redis://cache
+      - REDIS_URL=redis://redis:6379
     ports:
       - "3000:3000"
+    depends_on:
+      - mongo
+      - redis
     links:
       - mongo
+      - redis
   mongo:
     container_name: mongo
     image: mongo
