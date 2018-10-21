@@ -12,11 +12,11 @@ module.exports = {
 };
 
 async function getAll() {
-    return await Ticker.find().select('symbol exchange price');
+    return await Ticker.find().select('symbol exchange price updateDate');
 }
 
 async function getBySymbol(symbol) {
-    return await Ticker.find({ symbol: symbol.toUpperCase() }).select('symbol exchange price');;
+    return await Ticker.find({ symbol: symbol.toUpperCase() }).select('symbol exchange price updateDate');;
 }
 
 async function fetch() {
