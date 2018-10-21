@@ -19,6 +19,17 @@ services:
     links:
       - mongo
       - redis
+
+  worker:
+    build: .
+    container_name: worker
+    environment:
+      - REDIS_URL=redis://redis:6379
+    command: "sh -c 'npm i && npm run worker'"
+    depends_on:
+      - redis
+    links:
+      - redis
   mongo:
     container_name: mongo
     image: mongo

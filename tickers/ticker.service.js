@@ -1,5 +1,8 @@
 const axios = require('axios');
 const db = require('../_helpers/db');
+const Sentry = require('@sentry/node');
+Sentry.init({ dsn: 'https://b95faf4c640f4b70be2f4c41e1212b41@sentry.io/1305664' });
+
 const Ticker = db.Ticker;
 
 module.exports = {
@@ -20,6 +23,12 @@ async function fetch() {
     await getBinancePrices();
     await getBittrexPrices();
     await getPoloniexPrices();
+
+    try {
+        aFunctionThatMightFail();
+    } catch (err) {
+        Sentry.captureException(err);
+    }
     // return await getBitfinexPrices();
 }
 
