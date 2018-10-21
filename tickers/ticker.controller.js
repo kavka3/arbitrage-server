@@ -19,7 +19,7 @@ function getAll(req, res, next) {
 
 function getBySymbol(req, res, next) {
 
-    console.log("getBySymbol: ",req.params.symbol)
+    console.log("getBySymbol: ", req.params.symbol)
 
     tickerService.getBySymbol(req.params.symbol)
         .then(tickers => tickers ? res.json(tickers) : res.sendStatus(404))
