@@ -24,11 +24,11 @@ async function fetch() {
     await getBittrexPrices();
     await getPoloniexPrices();
 
-    try {
-        aFunctionThatMightFail();
-    } catch (err) {
-        Sentry.captureException(err);
-    }
+    // try {
+    //     aFunctionThatMightFail();
+    // } catch (err) {
+    //     Sentry.captureException(err);
+    // }
     // return await getBitfinexPrices();
 }
 
