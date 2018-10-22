@@ -1,3 +1,4 @@
 {
-    "connectionString": "mongodb://mongo:27017/newdock"
+    "connectionString": "mongodb://mongo:27017/newdock",
+    "sentryDSN": "https://b95faf4c640f4b70be2f4c41e1212b41@sentry.io/1305664"
 }
