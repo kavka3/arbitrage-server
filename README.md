@@ -1,5 +1,7 @@
 # Arbitrage-server
 
-Run `docker-compose up --build` to build and run project
+Run `docker-compose build` to build project
 
-Navigate to `http://localhost:3000/arena`. _ to see your queues
+Run `docker-compose up` to run project
+
+Run `docker exec -it worker pm2 monit` to monitor processes
