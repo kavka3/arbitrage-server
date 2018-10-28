@@ -19,15 +19,15 @@ EXCHANGES.process(function (job, done) {
     throw new Error('some unexpected error');
 });
 
-EXCHANGES.on('completed', job => {
-    console.log(`Job with id ${job.id} has been completed`);
-})
+// EXCHANGES.on('completed', job => {
+//     console.log(`Job with id ${job.id} has been completed`);
+// })
 
 EXCHANGES.add(
     {},
     {
         repeat: {
-            every: 20000
+            every: 1000
             //   limit: 100
         }
     }

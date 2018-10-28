@@ -32,11 +32,15 @@ async function fetch() {
     // return await getBitfinexPrices();
 }
 
+var count2 = 0;
+var count1 = 0;
+var count3 = 0;
+
 function getBinancePrices() {
     return new Promise(resolve => {
         axios.get('https://api.binance.com/api/v3/ticker/price')
             .then(response => {
-                console.log("Binance symbols: " + response.data.length);
+                console.log("#" + ++count1 + " - Binance response status: " + response.status);
                 response.data.forEach(ticker => {
                     handleTicker({ symbol: ticker.symbol, exchangeSymbol: ticker.symbol, price: ticker.price, exchange: "binance" });
                 });
@@ -54,7 +58,8 @@ function getBittrexPrices() {
     return new Promise(resolve => {
         axios.get('https://bittrex.com/api/v1.1/public/getmarketsummaries')
             .then(response => {
-                console.log("Bittrex symbols " + response.data.result.length);
+                console.log("#" + ++count3 + " - Bittrex response status: " + response.status);
+                // console.log("Bittrex symbols " + response.data.result.length);
                 response.data.result.forEach(ticker => {
                     handleTicker({ symbol: formatSymbol(ticker.MarketName, '-'), exchangeSymbol: ticker.MarketName, price: ticker.Last, exchange: "bittrex" });
                 });
@@ -72,11 +77,17 @@ function getPoloniexPrices() {
         axios.get('https://poloniex.com/public?command=returnTicker')
             .then(response => {
                 var count = 0;
+
+                console.log("#" + ++count2 + " - Poloniex response status: " + response.status);
+
                 Object.keys(response.data).forEach(key => {
                     handleTicker({ symbol: formatSymbol(key, '_'), exchangeSymbol: key, price: response.data[key].last, exchange: "poloniex" });
                     count++;
                 });
-                console.log("Poloniex symbols: " + count);
+
+
+
+                // console.log("Poloniex symbols: " + count);
                 resolve(response.data);
             })
             .catch(error => {

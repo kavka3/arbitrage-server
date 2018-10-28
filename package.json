@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node app.js",
     "worker": "node worker.js"
   },
   "author": "",
@@ -20,7 +20,5 @@
     "mongoose": "^5.3.3",
     "redis": "^2.8.0"
   },
-  "devDependencies": {
-    "nodemon": "^1.18.2"
-  }
+  "devDependencies": {}
 }

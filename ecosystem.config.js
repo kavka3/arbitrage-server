@@ -2,9 +2,9 @@ module.exports = {
   apps: [{
     name: 'API',
     script: 'app.js',
-    autorestart: true,
+    autorestart: false,
     watch: true,
-    max_memory_restart: '1G',
+    // max_memory_restart: '1G',
     env: {
       NODE_ENV: 'development'
     },
@@ -15,9 +15,9 @@ module.exports = {
   {
     name: 'WORKER',
     script: 'worker.js',
-    autorestart: true,
+    autorestart: false,
     watch: true,
-    max_memory_restart: '1G',
+    // max_memory_restart: '1G',
     env: {
       NODE_ENV: 'development'
     },

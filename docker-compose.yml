@@ -19,16 +19,32 @@ services:
     links:
       - mongo
       - redis
-  # worker:
-  #   container_name: worker
+  worker:
+    container_name: worker
+    build: .
+    environment:
+      - REDIS_URL=redis://redis:6379
+    # command: "sh -c 'npm i && npm run worker'"
+    depends_on:
+      - redis
+    links:
+      - redis
+    build:
+      context: .
+      dockerfile: Dockerfile-worker
+  # worker2:
+  #   container_name: worker2
   #   build: .
   #   environment:
   #     - REDIS_URL=redis://redis:6379
-  #   command: "sh -c 'npm i && npm run worker'"
+  #   # command: "sh -c 'npm i && npm run worker'"
   #   depends_on:
   #     - redis
   #   links:
   #     - redis
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile-worker2
   mongo:
     container_name: mongo
     image: mongo
